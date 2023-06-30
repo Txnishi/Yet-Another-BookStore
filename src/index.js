@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
-const books = [
+const book = [
   {
   author: "Rebecca Yarros",
   title: "Iron Flame (The Empyrean, 2)",
@@ -24,16 +24,15 @@ const BookList = () => {
   return (
     <section className="bookList">
       {book.map((book) => {
-        const {img, title, author, id} = book;
-        return <Book img={img} title={title} author={author} key={id}/>
+        return <Book {...book} key={book.id}/>
       })}
     </section>
   );
 };
 
 const Book = (props) => {
-  const { img:pic, title, author } = props;
-  console.log(pic, title, ...rest);
+  const { img, title, author } = props;
+  console.log(props);
   return (
     <article className="book">
       <img src={img} alt={title} />
